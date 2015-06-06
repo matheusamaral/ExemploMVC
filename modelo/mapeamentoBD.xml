@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF8" ?>
+ 
+<configuracao>
+   
+    <classe nome="Aluno" tabela="aluno">
+        <id coluna="id" atributo="id">
+            <gerador classe="sequence"/>
+        </id>               
+        <propriedades coluna="nome" atributo="nome" />
+        <propriedades coluna="matricula" atributo="matricula" />
+        <propriedades coluna="momentocadastro" atributo="momentoCadastro" />
+    </classe>
+    
+</configuracao>

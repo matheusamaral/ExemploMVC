@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Análise de execução</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Le styles -->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px; 
+      }
+
+      .form-signin {
+        max-width: 900px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      
+      .vis{
+          background-color: #e5e5e5;
+          width: 90px;
+          height: 90px;
+          color: #ffffff;
+          font-weight: bold;
+          -webkit-border-radius: 85px;
+           -moz-border-radius: 85px;
+                border-radius: 85px;
+          margin: 20px auto;
+          padding: 5px 5px 5px 5px;
+          text-align: center;
+          line-height: 6em;
+      }
+      
+     
+       .vis.vc{
+          background-color: steelblue;
+      }
+      .vis.vm{
+          background-color: yellowgreen
+      }
+      .vis.vp{
+          background-color: tomato;
+      }
+      
+
+    </style>
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/GCS.js"></script>    
+    <script src="lib/aluno.js"></script>    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+ 
+  </head>
+
+  <body>
+
+    <div class="hero-unit">
+  <h1>Análise de execução</h1>
+  <p>Aplicação rica utilizando GCS e Framework Persistente</p>
+ 
+</div>
+      
+      <div class="span4">
+          <h4>Matricular aluno</h4>
+          <form action="javascript:Aluno.matricularAluno()" name="matricularAluno" method="post" id="matricularAluno">
+              <label for="nome">Nome: </label><input type="text" name="nome" id="nome" placeholder="Informe o nome"/>
+              <label for="nome">Matrícula: </label><input type="text" name="matricula" id="matricula" placeholder="Informe a matrícula"/>
+              <p id="msg_mat"></p>
+              <p><input type="submit" value="Matricular" class="btn btn-primary btn-large"/></p>
+          </form>
+      </div>
+      <div class="span4">
+          <h4>Visualização</h4>
+          <div></div>
+          <p class="vis" id="vcliente" title="Ponto inicial, parte após a ação do usuário">Cliente</p>                    
+          <p class="vis" id="vmodelo" title="Quando a camada de modelo invoca o método da persistência">Modelo</p>                    
+          <p class="vis" id="vpersistencia" title="Por fim quando os dados são armazenados">Persistência</p>          
+      </div>
+      <div class="span4">
+          <h4>Resultado</h4>        
+          <div>
+              <p>Lista de alunos cadastrados.</p>
+              <div id="carregando" ><img src="lib/img/carregando2.gif" /><span id="msg">Verificando...</span></div>              
+              <table id="lista-alunos" class="table">
+                  <tr>
+                      <th>Nome</th>
+                      <th>Matrícula</th>
+                      <th>Momento</th>
+                  </tr>
+              </table>
+          </div>
+      </div>
+  
+  </body>
+</html>
